@@ -57,7 +57,7 @@ const { hasRole, hasBtn, labelWidth } = toRefs(props)
 
 const formRef = ref<FormInstance>()
 const form = reactive<SelectForm>({
-  uid: 18000002
+  uid: 18000000
 })
 const rules = reactive<FormRules>({
   uid: [{ required: true, message: '请选择账号', trigger: 'blur' }]

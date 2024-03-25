@@ -94,9 +94,9 @@ const formRef = ref<FormInstance>()
 
 const form = reactive<ClientLoginForm>({
   login_type: 'password',
-  uid: 18000002,
-  username: 'bailbo9',
-  password: '123456',
+  uid: 18000000,
+  username: '1341454644',
+  password: '1341454644',
   public_pem: '',
   game_dir: ''
 })
