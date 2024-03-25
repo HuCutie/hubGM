@@ -20,15 +20,6 @@ const ClientRoutes: Array<AppRouteRecordRaw> = [
           title: '客户端登录',
           icon: 'key'
         }
-      },
-      {
-        path: 'test',
-        name: 'ClientTest',
-        component: () => import('@/views/test.vue'),
-        meta: {
-          title: '测试',
-          icon: 'list'
-        }
       }
     ]
   }

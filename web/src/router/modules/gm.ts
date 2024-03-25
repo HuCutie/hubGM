@@ -56,15 +56,6 @@ const accountsRoutes: Array<AppRouteRecordRaw> = [
           title: '拍卖行',
           icon: 'list'
         }
-      },
-      {
-        path: 'test',
-        name: 'UserTest',
-        component: () => import('@/views/test.vue'),
-        meta: {
-          title: '测试',
-          icon: 'list'
-        }
       }
     ]
   }

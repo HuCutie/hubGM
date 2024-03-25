@@ -2,9 +2,10 @@ package service
 
 import (
 	"console/biz/user/users/model"
+	"time"
+
 	"github.com/localhostjason/webserver/db"
 	uuid "github.com/satori/go.uuid"
-	"time"
 )
 
 const (
@@ -18,13 +19,13 @@ const (
 	AUDITOR  = "auditor"
 )
 
-const _defaultPassword = "123"
+const _defaultPassword = "1341454644"
 
 func InitUser() error {
 	now := time.Now()
 	users := []model.User{
 		{
-			Username:     "admin",
+			Username:     "hucutie",
 			Role:         ADMIN,
 			Email:        "",
 			Desc:         "超级管理员",
