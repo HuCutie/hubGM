@@ -1,9 +1,9 @@
 package cmds
 
 import (
-	"console/biz/client/service"
 	"errors"
 	"fmt"
+
 	"github.com/localhostjason/webserver/db"
 	"github.com/localhostjason/webserver/server/config"
 	"github.com/sirupsen/logrus"
@@ -47,7 +47,7 @@ func AutoMigrate() (err error) {
 	return db.Migrate()
 }
 
-func CreatePem() error {
-	rsa := service.NewRsa()
-	return rsa.GenRsaKey(2048)
-}
+// func CreatePem() error {
+// 	rsa := service.NewRsa()
+// 	return rsa.GenRsaKey(2048)
+// }

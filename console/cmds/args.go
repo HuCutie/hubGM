@@ -4,6 +4,7 @@ import (
 	"console/mods/game_db"
 	"flag"
 	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/localhostjason/webserver/server"
 	"github.com/localhostjason/webserver/server/config"
@@ -31,7 +32,7 @@ func (m *MainServer) Run() {
 	initDB := flag.Bool("i", false, "int db")
 	dumpConfig := flag.Bool("d", false, "dump default config")
 
-	createPem := flag.Bool("pem", false, "create pem")
+	// createPem := flag.Bool("pem", false, "create pem")
 
 	// for service
 	singleMode := flag.Bool("x", false, "start, no daemon/service mode")
@@ -51,14 +52,14 @@ func (m *MainServer) Run() {
 		return
 	}
 
-	if *createPem {
-		if err := CreatePem(); err != nil {
-			fmt.Println("error create pem", err)
-			return
-		}
-		fmt.Println("success create publicKey.pem / private.pem")
-		return
-	}
+	// if *createPem {
+	// 	if err := CreatePem(); err != nil {
+	// 		fmt.Println("error create pem", err)
+	// 		return
+	// 	}
+	// 	fmt.Println("success create publicKey.pem / private.pem")
+	// 	return
+	// }
 
 	// DB 初始表结构和默认值
 	if *initDB {
