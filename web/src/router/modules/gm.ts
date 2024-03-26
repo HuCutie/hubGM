@@ -47,15 +47,6 @@ const accountsRoutes: Array<AppRouteRecordRaw> = [
           title: '邮件工具',
           icon: 'transfer'
         }
-      },
-      {
-        path: 'auction',
-        name: 'GmAuction',
-        component: () => import('@/views/gm/auction/index.vue'),
-        meta: {
-          title: '拍卖行',
-          icon: 'list'
-        }
       }
     ]
   }
