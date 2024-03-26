@@ -1,14 +1,14 @@
 package cmds
 
 import (
-	"errors"
 	"fmt"
-	"github.com/localhostjason/webserver/server"
-	"github.com/localhostjason/webserver/server/config"
-	"github.com/localhostjason/webserver/svc"
 	"os"
 	"path/filepath"
 	"runtime"
+
+	"github.com/localhostjason/webserver/server"
+	"github.com/localhostjason/webserver/server/config"
+	"github.com/localhostjason/webserver/svc"
 )
 
 const _groupService = "service"
@@ -56,7 +56,7 @@ func NewService(prc *MainProc) (*svc.Svc, error) {
 	} else {
 		c, err := getConf()
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("failed to get daemon config:%v", err))
+			return nil, fmt.Errorf("failed to get daemon config: %w", err)
 		}
 		return svc.NewSvc(c.PidFile, c.DaemonLog, prc), nil
 	}

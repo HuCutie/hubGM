@@ -1,7 +1,6 @@
 package cmds
 
 import (
-	"errors"
 	"fmt"
 
 	"github.com/localhostjason/webserver/db"
@@ -25,7 +24,7 @@ func SyncDB() (err error) {
 	}
 	err = db.Connect()
 	if err != nil {
-		return errors.New(fmt.Sprintf("failed to migrate:%v", err))
+		return fmt.Errorf("failed to migrate: %w", err)
 	}
 	err = db.Migrate()
 	if err != nil {
@@ -42,7 +41,7 @@ func AutoMigrate() (err error) {
 	}
 	err = db.Connect()
 	if err != nil {
-		return errors.New(fmt.Sprintf("failed to migrate:%v", err))
+		return fmt.Errorf("failed to migrate: %w", err)
 	}
 	return db.Migrate()
 }

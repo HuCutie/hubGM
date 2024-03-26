@@ -1,8 +1,8 @@
 package cmds
 
 import (
-	"errors"
 	"fmt"
+
 	"github.com/localhostjason/webserver/svc"
 
 	log "github.com/sirupsen/logrus"
@@ -12,7 +12,7 @@ func createService(singleMode bool) (*svc.Svc, error) {
 	prc := NewProc(singleMode)
 	svcx, err := NewService(prc)
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("failed to create program:%v", err))
+		return nil, fmt.Errorf("failed to create program: %w", err)
 	}
 	return svcx, nil
 }
