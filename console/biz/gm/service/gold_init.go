@@ -6,13 +6,14 @@ import (
 	"console/mods/game_db"
 	"console/mods/pathx"
 	"fmt"
-	"github.com/localhostjason/webserver/util"
 	"io"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/localhostjason/webserver/util"
 )
 
 type GoldFile struct {
@@ -45,12 +46,12 @@ func (gf *GoldFile) Read() []model.Gold {
 	for {
 		content, _, err := line.ReadLine()
 		if err == io.EOF {
-			fs.Close() //关闭
+			fs.Close()
 			break
 		}
 
 		data := string(content)
-		reg, _ := regexp.Compile("\\[(.*)]")
+		reg, _ := regexp.Compile(`\[(.*)]`)
 		ver := reg.FindAllStringSubmatch(data, 1)
 		if len(ver) == 0 {
 			continue
@@ -80,7 +81,8 @@ func (gf *GoldFile) WriteDB() error {
 	var gs []model.Gold
 	dbx.Find(&gs)
 	if len(gs) > 0 {
-		return nil
+		fmt.Println("Clearing existing gold data...")
+		dbx.Exec("DELETE FROM golds")
 	}
 
 	fmt.Println("start")
@@ -92,6 +94,5 @@ func (gf *GoldFile) WriteDB() error {
 
 func init() {
 	gf := NewGoldFile()
-	// 数据太多，直接执行sql 导入？
 	game_db.AddInitHook(gf.WriteDB)
 }
