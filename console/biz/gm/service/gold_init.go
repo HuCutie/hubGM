@@ -51,7 +51,7 @@ func (gf *GoldFile) Read() []model.Gold {
 		}
 
 		data := string(content)
-		reg, _ := regexp.Compile(`\[(.*)]`)
+		reg, _ := regexp.Compile(`\[(.*?)\]`)
 		ver := reg.FindAllStringSubmatch(data, 1)
 		if len(ver) == 0 {
 			continue
