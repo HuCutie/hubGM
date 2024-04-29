@@ -72,6 +72,11 @@
             </el-row>
             <el-row>
               <el-table :data="goldState.data" v-loading="goldState.loading" border fit>
+                <el-table-column width="55">
+                    <template v-slot:default="scope">
+                        <input type="radio" name="selectedItemCode" :value="scope.row.code" :key="scope.row.id" @change="handleSelectChange(scope.row)">
+                    </template>
+                </el-table-column>
                 <el-table-column prop="code" label="物品编号" width="150" />
                 <el-table-column prop="name" label="物品名称" />
               </el-table>
@@ -115,7 +120,7 @@ const form = reactive<Email>({
   amplify_option: 3,
   amplify_value: 0,
   gold: 0,
-  seal_flag: false
+  seal_flag: false,
 })
 
 const rules = reactive<FormRules>({
@@ -196,6 +201,10 @@ const handleSizeChange = (params_limit: number) => {
 const handleCurrentChange = (params_page: number) => {
   pageQuery.page = params_page
   getGoldList()
+}
+
+const handleSelectChange = (rowData) => {
+  form.code = rowData.code;
 }
 
 const filterGold = () => {
