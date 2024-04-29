@@ -41,7 +41,7 @@
 
           <el-form-item label="是否封装">
             <el-checkbox v-model="form.seal_flag" />
-            <span class="text-warning sm">ss装备不要勾选！！！</span>
+            <span class="text-warning sm">史诗装备不要勾选！</span>
           </el-form-item>
 
           <el-form-item>
