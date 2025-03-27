@@ -28,13 +28,13 @@
 <script setup lang="ts">
 import PanelTitle from '@/components/PanelTitle'
 import PanelStep from '@/components/PanelStep'
-import SelectAccount from '../tasks/SelectAccount'
-import EmailForm from './EmailForm'
+import SelectAccount from '../tasks/SelectAccount.vue'
+import EmailForm from './EmailForm.vue'
 
 import { getRoles } from '@/api/gm/role'
 import { reactive, ref } from 'vue'
 import { RoleState } from '@/views/gm/roles/model'
-import RoleTable from '../tasks/RoleTable'
+import RoleTable from '../tasks/RoleTable.vue'
 import { any } from 'vue-types'
 
 const state = reactive<RoleState>({
