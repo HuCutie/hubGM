@@ -4,14 +4,15 @@ import (
 	"console/mods/pathx"
 	"errors"
 	"fmt"
+	"os"
+	"path/filepath"
+	"sync"
+
 	"github.com/localhostjason/webserver/util"
 	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
-	"os"
-	"path/filepath"
-	"sync"
 )
 
 // ConnectWithSqliteConfig 连接，检验配置是否正确
