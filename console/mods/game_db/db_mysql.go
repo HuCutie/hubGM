@@ -2,10 +2,10 @@
 package game_db
 
 import (
-	"errors"
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"sync"
+
+	log "github.com/sirupsen/logrus"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -54,7 +54,7 @@ func connectMysqlOne(c MysqlDBConfig) error {
 	}
 
 	if err != nil {
-		return errors.New(fmt.Sprintf("failed to connect databse %s:%v", dsn, err))
+		return fmt.Errorf("failed to connect databse %s:%v", dsn, err)
 	}
 
 	DBPools.Add(c.Key, db)

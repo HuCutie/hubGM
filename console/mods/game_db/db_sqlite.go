@@ -2,7 +2,6 @@ package game_db
 
 import (
 	"console/mods/pathx"
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -60,16 +59,13 @@ func connectSqliteOne(c SqliteDBConfig) error {
 		NamingStrategy:         schema.NamingStrategy{SingularTable: true},
 	})
 	if err != nil {
-		return errors.New(fmt.Sprintf("db file:%s, err:%s", dbFile, err))
+		return fmt.Errorf("db file:%s, err:%s", dbFile, err)
 	}
 
 	if c.Debug {
 		db = db.Debug()
 	}
 
-	if err != nil {
-		return errors.New(fmt.Sprintf("failed to connect databse %s:%v", c.DbFile, err))
-	}
 	DBPools.Add(c.Key, db)
 	return nil
 }

@@ -1,8 +1,8 @@
 package game_db
 
 import (
-	"errors"
 	"fmt"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -14,7 +14,7 @@ func SyncDB() (err error) {
 
 	err = Connect()
 	if err != nil {
-		return errors.New(fmt.Sprintf("failed to migrate:%v", err))
+		return fmt.Errorf("failed to migrate:%v", err)
 	}
 	err = Migrate()
 	if err != nil {
@@ -31,7 +31,7 @@ func AutoMigrate() (err error) {
 	}
 	err = Connect()
 	if err != nil {
-		return errors.New(fmt.Sprintf("failed to migrate:%v", err))
+		return fmt.Errorf("failed to migrate:%v", err)
 	}
 	return Migrate()
 }
