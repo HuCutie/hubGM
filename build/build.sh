@@ -1,5 +1,7 @@
 #!/bin/bash
 
+systemctl stop dnfgm
+
 cd ../web
 
 npm install
@@ -14,3 +16,5 @@ go build main.go
 yes | cp main ../dist
 
 cd ../build
+
+systemctl restart dnfgm
